@@ -2,6 +2,9 @@ const express = require("express");
 
 app = express();
 
+//port number
+const port = 3000;
+
 //handle the work hours
 const today = new Date();
 
@@ -26,4 +29,6 @@ app.get("/services", (req, res) => {
   res.sendFile(__dirname + "/pages/services.html");
 });
 
-app.listen(3000, () => console.log("server is runing on port 3000"));
+app.listen(port, (err) => {
+  err ? console.error(err) : console.log(`go to the ${port}`);
+});
